@@ -1,0 +1,46 @@
+project:
+  name: neural-financial-risk-prediction
+  version: 1.0.0
+  random_seed: 42
+
+data:
+  target_column: isFraud
+  time_column: step
+  train_end_step: 520
+  validation_end_step: 631
+  test_end_step: 743
+
+features:
+  numerical:
+    - amount
+    - oldbalanceOrg
+    - oldbalanceDest
+    - step
+
+  categorical:
+    - type
+
+  excluded:
+    - nameOrig
+    - nameDest
+    - newbalanceOrig
+    - newbalanceDest
+    - isFlaggedFraud
+
+training:
+  batch_size: 4096
+  epochs: 30
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 5
+
+evaluation:
+  primary_metric: average_precision
+  default_threshold: 0.5
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  baseline_model: models/baseline
+  neural_model: models/neural_network
+  reports: reports

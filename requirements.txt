@@ -1,0 +1,30 @@
+# Data processing
+pandas
+numpy
+pyarrow
+
+# Machine learning
+scikit-learn
+imbalanced-learn
+
+# Deep learning
+torch
+
+# Visualization
+matplotlib
+seaborn
+plotly
+
+# Dashboard
+streamlit
+
+# Model persistence and configuration
+joblib
+pyyaml
+
+# Testing and code quality
+pytest
+pytest-cov
+
+# Utilities
+tqdm
