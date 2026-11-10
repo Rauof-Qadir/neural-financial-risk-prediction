@@ -1,0 +1,39 @@
+{
+    "audit_name": "Formal Feature Drift Analysis",
+    "reference_split": "train",
+    "comparisons": [
+        "train_vs_validation",
+        "train_vs_test"
+    ],
+    "batch_size": 100000,
+    "sample_per_batch": 5000,
+    "max_population_sample_per_split": 200000,
+    "max_fraud_sample_per_split": 50000,
+    "random_seed": 42,
+    "sampling_method": "Random sample from each sequential Parquet batch, followed by a capped sample.",
+    "psi_method": "Standard numeric features: up to ten quantile bins derived from reference sample. newbalanceOrig: separate exact-zero bin plus up to five reference-derived quantile bins for non-zero observations. Conditional non-zero PSI is reported separately when sample-size requirements are met. Epsilon smoothing is used.",
+    "ks_method": "Two-sided two-sample KS test on sampled observations.",
+    "important_notes": [
+        "PSI and KS values are sample-based estimates.",
+        "KS p-values can be highly sensitive to sample size.",
+        "Statistical significance does not imply business importance.",
+        "Fraud-only comparisons use observed fraud labels retrospectively.",
+        "Test data is used for descriptive analysis only.",
+        "No model retraining or threshold tuning was performed.",
+        "PSI interpretation bands are heuristics, not universal standards."
+    ],
+    "split_counts": {
+        "train": {
+            "transactions": 6082007,
+            "fraud": 5781
+        },
+        "validation": {
+            "transactions": 191147,
+            "fraud": 1180
+        },
+        "test": {
+            "transactions": 89466,
+            "fraud": 1252
+        }
+    }
+}
