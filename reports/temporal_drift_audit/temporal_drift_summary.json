@@ -1,0 +1,43 @@
+{
+    "audit_name": "Temporal Fraud Pattern and Feature Drift Audit",
+    "method": "Batch-based descriptive analysis of original Parquet splits",
+    "batch_size": 100000,
+    "total_rows_processed": 6362620,
+    "split_summary": [
+        {
+            "split": "train",
+            "transactions": 6082007,
+            "fraud_count": 5781,
+            "non_fraud_count": 6076226,
+            "fraud_rate": 0.0009505086067806235,
+            "average_transaction_amount": 180413.05055853768,
+            "gross_fraud_transaction_amount": 8429009792.440001
+        },
+        {
+            "split": "validation",
+            "transactions": 191147,
+            "fraud_count": 1180,
+            "non_fraud_count": 189967,
+            "fraud_rate": 0.006173259323975788,
+            "average_transaction_amount": 160710.9408356919,
+            "gross_fraud_transaction_amount": 1497276960.19
+        },
+        {
+            "split": "test",
+            "transactions": 89466,
+            "fraud_count": 1252,
+            "non_fraud_count": 88214,
+            "fraud_rate": 0.01399414302640109,
+            "average_transaction_amount": 183310.91323486017,
+            "gross_fraud_transaction_amount": 2130128675.21
+        }
+    ],
+    "important_notes": [
+        "This is descriptive analysis, not causal proof.",
+        "The test split is used retrospectively for analysis only.",
+        "No model was retrained and no threshold was changed.",
+        "Gross fraud transaction amount is not verified financial loss.",
+        "Amount bands are fixed across all splits for comparability.",
+        "Time periods represent 20 simulation steps each."
+    ]
+}
