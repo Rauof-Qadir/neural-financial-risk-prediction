@@ -1,0 +1,198 @@
+{
+    "project": "Neural Financial Risk Prediction System",
+    "analysis": "Grouped transaction-type permutation SHAP",
+    "model_sha256": "ae9d3e357c2e0dcf9abe0600245eede7ebfc0198338009a5c084185f7302189b",
+    "model_best_epoch": 7,
+    "frozen_threshold": 0.1444527953863144,
+    "explainer": "SHAP PermutationExplainer",
+    "conceptual_features": [
+        "step",
+        "log_amount",
+        "log_oldbalanceOrg",
+        "log_oldbalanceDest",
+        "transaction_type"
+    ],
+    "original_model_features": [
+        "step",
+        "log_amount",
+        "log_oldbalanceOrg",
+        "log_oldbalanceDest",
+        "type_CASH_IN",
+        "type_CASH_OUT",
+        "type_DEBIT",
+        "type_PAYMENT",
+        "type_TRANSFER"
+    ],
+    "transaction_type_grouping": [
+        "CASH_IN",
+        "CASH_OUT",
+        "DEBIT",
+        "PAYMENT",
+        "TRANSFER"
+    ],
+    "background_source": "Training features only",
+    "background_size": 128,
+    "global_sample_size": 500,
+    "false_negative_count": 212,
+    "max_evals_per_observation": 101,
+    "global_additivity_check": {
+        "mean_absolute_additivity_error": 1.6393346783161178e-08,
+        "max_absolute_additivity_error": 1.816079020500183e-07,
+        "median_absolute_additivity_error": 0.0,
+        "output_scale": "logit"
+    },
+    "false_negative_additivity_check": {
+        "mean_absolute_additivity_error": 4.62732686549612e-10,
+        "max_absolute_additivity_error": 9.468446293681154e-08,
+        "median_absolute_additivity_error": 0.0,
+        "output_scale": "logit"
+    },
+    "global_top_features": [
+        {
+            "feature": "transaction_type",
+            "mean_absolute_shap": 12.159801427344002,
+            "mean_signed_shap": -0.21074902881548688,
+            "median_signed_shap": -7.3352822325088916,
+            "positive_contribution_rate": 0.402,
+            "negative_contribution_rate": 0.598
+        },
+        {
+            "feature": "log_oldbalanceOrg",
+            "mean_absolute_shap": 3.329556665269011,
+            "mean_signed_shap": -0.536528330076874,
+            "median_signed_shap": -0.2855810274551105,
+            "positive_contribution_rate": 0.482,
+            "negative_contribution_rate": 0.518
+        },
+        {
+            "feature": "log_oldbalanceDest",
+            "mean_absolute_shap": 2.0345747528717495,
+            "mean_signed_shap": -0.13734642954566517,
+            "median_signed_shap": -0.8667702267412096,
+            "positive_contribution_rate": 0.462,
+            "negative_contribution_rate": 0.538
+        },
+        {
+            "feature": "step",
+            "mean_absolute_shap": 1.8587276507689385,
+            "mean_signed_shap": -1.8587276507689385,
+            "median_signed_shap": -1.3856251841967202,
+            "positive_contribution_rate": 0.0,
+            "negative_contribution_rate": 1.0
+        },
+        {
+            "feature": "log_amount",
+            "mean_absolute_shap": 1.5450334550953055,
+            "mean_signed_shap": 0.3465539943062597,
+            "median_signed_shap": 0.2875944685785928,
+            "positive_contribution_rate": 0.604,
+            "negative_contribution_rate": 0.396
+        }
+    ],
+    "false_negative_top_features": [
+        {
+            "feature": "transaction_type",
+            "mean_absolute_shap": 17.96235625149905,
+            "mean_signed_shap": 17.96235625149905,
+            "median_signed_shap": 18.1288458215422,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "log_amount",
+            "mean_absolute_shap": 3.0323421103984507,
+            "mean_signed_shap": 3.0323421103984507,
+            "median_signed_shap": 2.9844286323770777,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "log_oldbalanceOrg",
+            "mean_absolute_shap": 3.028166904859598,
+            "mean_signed_shap": 2.9602653357125033,
+            "median_signed_shap": 3.027009048111116,
+            "positive_contribution_rate": 0.9952830188679245,
+            "negative_contribution_rate": 0.0047169811320754715
+        },
+        {
+            "feature": "step",
+            "mean_absolute_shap": 1.4171016125267897,
+            "mean_signed_shap": -1.4171016125267897,
+            "median_signed_shap": -1.4261108668676266,
+            "positive_contribution_rate": 0.0,
+            "negative_contribution_rate": 1.0
+        },
+        {
+            "feature": "log_oldbalanceDest",
+            "mean_absolute_shap": 1.187926934316434,
+            "mean_signed_shap": -0.5643597656072155,
+            "median_signed_shap": -0.9796444443571899,
+            "positive_contribution_rate": 0.2783018867924528,
+            "negative_contribution_rate": 0.7216981132075472
+        }
+    ],
+    "cashout_50k_250k": {
+        "segment": "CASH_OUT fraud, $50K to less than $250K",
+        "missed_fraud_count": 164,
+        "mean_amount": 124673.06426829268,
+        "median_amount": 114558.735,
+        "mean_fraud_probability": 0.09216789156198502,
+        "frozen_threshold": 0.1444527953863144,
+        "top_features": [
+            {
+                "feature": "transaction_type",
+                "mean_absolute_shap": 17.966226972716935,
+                "mean_signed_shap": 17.966226972716935,
+                "median_signed_shap": 18.133409864223925,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            },
+            {
+                "feature": "log_amount",
+                "mean_absolute_shap": 3.030819204611625,
+                "mean_signed_shap": 3.030819204611625,
+                "median_signed_shap": 3.0262724208749003,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            },
+            {
+                "feature": "log_oldbalanceOrg",
+                "mean_absolute_shap": 2.9422407911344766,
+                "mean_signed_shap": 2.9422407911344766,
+                "median_signed_shap": 3.0214471025780467,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            },
+            {
+                "feature": "step",
+                "mean_absolute_shap": 1.4306175261582117,
+                "mean_signed_shap": -1.4306175261582117,
+                "median_signed_shap": -1.4398880760159551,
+                "positive_contribution_rate": 0.0,
+                "negative_contribution_rate": 1.0
+            },
+            {
+                "feature": "log_oldbalanceDest",
+                "mean_absolute_shap": 1.1657799183835715,
+                "mean_signed_shap": -0.5553222614805672,
+                "median_signed_shap": -0.9543130280540532,
+                "positive_contribution_rate": 0.27439024390243905,
+                "negative_contribution_rate": 0.725609756097561
+            }
+        ],
+        "interpretation": "Grouped permutation SHAP contributions explain the frozen model's logit behavior for this segment."
+    },
+    "model_retrained": false,
+    "threshold_retuned": false,
+    "final_test_report_modified": false,
+    "limitations": [
+        "SHAP explains model behavior, not causality.",
+        "Global explanations use a deterministic test sample.",
+        "The background sample comes only from training features.",
+        "Transaction type is kept as one valid categorical feature.",
+        "Independent masking of numeric features can still create unrealistic combinations among correlated numeric inputs.",
+        "The categorical integer code is a label, not a numeric scale.",
+        "SHAP values are measured on the model logit scale.",
+        "PaySim is synthetic and does not establish real-bank behavior."
+    ]
+}

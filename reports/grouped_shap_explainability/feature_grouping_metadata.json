@@ -1,0 +1,24 @@
+{
+    "feature_names": [
+        "step",
+        "log_amount",
+        "log_oldbalanceOrg",
+        "log_oldbalanceDest",
+        "transaction_type"
+    ],
+    "transaction_type_codes": {
+        "0": "CASH_IN",
+        "1": "CASH_OUT",
+        "2": "DEBIT",
+        "3": "PAYMENT",
+        "4": "TRANSFER"
+    },
+    "original_one_hot_features": [
+        "type_CASH_IN",
+        "type_CASH_OUT",
+        "type_DEBIT",
+        "type_PAYMENT",
+        "type_TRANSFER"
+    ],
+    "grouping_method": "Five one-hot transaction type columns combined into one categorical feature."
+}

@@ -1,0 +1,51 @@
+{
+    "segment": "CASH_OUT fraud, $50K to less than $250K",
+    "missed_fraud_count": 164,
+    "mean_amount": 124673.06426829268,
+    "median_amount": 114558.735,
+    "mean_fraud_probability": 0.09216789156198502,
+    "frozen_threshold": 0.1444527953863144,
+    "top_features": [
+        {
+            "feature": "transaction_type",
+            "mean_absolute_shap": 17.966226972716935,
+            "mean_signed_shap": 17.966226972716935,
+            "median_signed_shap": 18.133409864223925,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "log_amount",
+            "mean_absolute_shap": 3.030819204611625,
+            "mean_signed_shap": 3.030819204611625,
+            "median_signed_shap": 3.0262724208749003,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "log_oldbalanceOrg",
+            "mean_absolute_shap": 2.9422407911344766,
+            "mean_signed_shap": 2.9422407911344766,
+            "median_signed_shap": 3.0214471025780467,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "step",
+            "mean_absolute_shap": 1.4306175261582117,
+            "mean_signed_shap": -1.4306175261582117,
+            "median_signed_shap": -1.4398880760159551,
+            "positive_contribution_rate": 0.0,
+            "negative_contribution_rate": 1.0
+        },
+        {
+            "feature": "log_oldbalanceDest",
+            "mean_absolute_shap": 1.1657799183835715,
+            "mean_signed_shap": -0.5553222614805672,
+            "median_signed_shap": -0.9543130280540532,
+            "positive_contribution_rate": 0.27439024390243905,
+            "negative_contribution_rate": 0.725609756097561
+        }
+    ],
+    "interpretation": "Grouped permutation SHAP contributions explain the frozen model's logit behavior for this segment."
+}

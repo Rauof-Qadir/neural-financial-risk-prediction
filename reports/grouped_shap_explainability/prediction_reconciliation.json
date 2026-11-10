@@ -1,0 +1,14 @@
+{
+    "test_rows": 89466,
+    "test_frauds": 1252,
+    "threshold": 0.1444527953863144,
+    "average_precision": 0.9372491125471515,
+    "roc_auc": 0.9987127314052068,
+    "precision": 0.8280254777070064,
+    "recall": 0.8306709265175719,
+    "false_positives": 216,
+    "false_negatives": 212,
+    "alerts": 1256,
+    "model_retrained": false,
+    "threshold_retuned": false
+}
