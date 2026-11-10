@@ -1,0 +1,14 @@
+{
+    "analysis": "CASH_OUT Fraud Failure Analysis",
+    "test_data_usage": "Retrospective descriptive analysis only",
+    "model_hash_verified": true,
+    "frozen_threshold": 0.1444527953863144,
+    "cashout_fraud_count": 626,
+    "detected_cashout_fraud": 415,
+    "missed_cashout_fraud": 211,
+    "cashout_recall": 0.6629392971246006,
+    "missed_cashout_gross_amount": 25946491.9,
+    "missed_cashout_average_amount": 122969.15592417061,
+    "detected_cashout_average_amount": 2455703.272698795,
+    "interpretation": "Descriptive analysis of frozen test predictions. No model retraining or threshold tuning performed. Transaction amounts are exposure proxies, not verified losses."
+}
