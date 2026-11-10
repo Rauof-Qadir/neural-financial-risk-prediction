@@ -1,0 +1,471 @@
+{
+  "status": "COMPLETED",
+  "experiment": "coherent_financial_transaction_stress_test",
+  "data_scope": "validation_only",
+  "final_test_accessed": false,
+  "model_retrained": false,
+  "threshold_retuned": false,
+  "frozen_threshold": 0.1444527953863144,
+  "frozen_model_sha256": "ae9d3e357c2e0dcf9abe0600245eede7ebfc0198338009a5c084185f7302189b",
+  "training_log_statistics": {
+    "log_amount": {
+      "mean": 10.84495227853688,
+      "scale": 1.812751047140007,
+      "count": 6082007
+    },
+    "log_oldbalanceOrg": {
+      "mean": 7.393740102629729,
+      "scale": 5.680071550496273,
+      "count": 6082007
+    },
+    "log_oldbalanceDest": {
+      "mean": 7.737309854783124,
+      "scale": 6.745081463279582,
+      "count": 6082007
+    }
+  },
+  "validation_baseline": {
+    "metrics": {
+      "rows": 191147,
+      "fraud_count": 1180,
+      "fraud_prevalence": 0.006173259323975788,
+      "pr_auc": 0.9119292909591689,
+      "roc_auc": 0.999231253635221,
+      "precision": 0.6366906474820144,
+      "recall": 0.9,
+      "f1": 0.7457865168539326,
+      "alert_rate": 0.008726268264738657,
+      "alerts": 1668,
+      "true_positive": 1062,
+      "false_positive": 606,
+      "true_negative": 189361,
+      "false_negative": 118
+    },
+    "segments": {
+      "legitimate": {
+        "rows": 189967,
+        "alerts": 606,
+        "alert_rate": 0.0031900277416603935,
+        "mean_probability": 0.0025771968066692352,
+        "median_probability": 3.7037446677309904e-13
+      },
+      "fraud": {
+        "rows": 1180,
+        "alerts": 1062,
+        "alert_rate": 0.9,
+        "mean_probability": 0.7542644143104553,
+        "median_probability": 0.9133044481277466
+      }
+    }
+  },
+  "accounting_consistency": {
+    "original_validation": {
+      "origin_balance": {
+        "eligible_rows": 78701,
+        "exact_within_0_01": 9755,
+        "within_0_01_rate": 0.12395014040482331,
+        "median_absolute_residual": 128405.18,
+        "p95_absolute_residual": 817170.1,
+        "max_absolute_residual": 15415938.31
+      },
+      "destination_balance": {
+        "eligible_rows": 121822,
+        "exact_within_0_01": 67041,
+        "within_0_01_rate": 0.5503193183497234,
+        "median_absolute_residual": 9.313225746154785e-10,
+        "p95_absolute_residual": 567198.8139999998,
+        "max_absolute_residual": 10000000.0
+      }
+    },
+    "coherent_scenarios": [
+      {
+        "scenario": "coherent_x0.80",
+        "equation": "origin_balance",
+        "eligible_rows": 78701,
+        "exact_within_0_01": 10018,
+        "within_0_01_rate": 0.1272919022629954,
+        "median_absolute_residual": 102724.144,
+        "p95_absolute_residual": 653736.0800000001,
+        "max_absolute_residual": 12332750.648000002
+      },
+      {
+        "scenario": "coherent_x0.80",
+        "equation": "destination_balance",
+        "eligible_rows": 121822,
+        "exact_within_0_01": 77838,
+        "within_0_01_rate": 0.6389486299683145,
+        "median_absolute_residual": 1.862645149230957e-09,
+        "p95_absolute_residual": 453759.05119999987,
+        "max_absolute_residual": 8000000.0
+      },
+      {
+        "scenario": "coherent_x1.20",
+        "equation": "origin_balance",
+        "eligible_rows": 78701,
+        "exact_within_0_01": 9539,
+        "within_0_01_rate": 0.12120557553271241,
+        "median_absolute_residual": 154086.216,
+        "p95_absolute_residual": 980604.1199999999,
+        "max_absolute_residual": 18499125.972
+      },
+      {
+        "scenario": "coherent_x1.20",
+        "equation": "destination_balance",
+        "eligible_rows": 121822,
+        "exact_within_0_01": 61656,
+        "within_0_01_rate": 0.5061154799625683,
+        "median_absolute_residual": 1.862645149230957e-09,
+        "p95_absolute_residual": 680638.5767999999,
+        "max_absolute_residual": 12000000.0
+      }
+    ],
+    "interpretation": "A common positive multiplier preserves the relative accounting equations and zero/non-zero structure. Absolute residuals scale with the multiplier, so compare relative residual behaviour as well as absolute values."
+  },
+  "scenarios": {
+    "coherent_x0.80": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.903072522070926,
+        "roc_auc": 0.9991653412060061,
+        "precision": 0.6363088057901085,
+        "recall": 0.8940677966101694,
+        "f1": 0.7434813248766737,
+        "alert_rate": 0.008673952507755812,
+        "alerts": 1658,
+        "true_positive": 1055,
+        "false_positive": 603,
+        "true_negative": 189364,
+        "false_negative": 125
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 603,
+          "alert_rate": 0.0031742355251175203,
+          "mean_probability": 0.002578615676611662,
+          "median_probability": 4.0513138633777035e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 1055,
+          "alert_rate": 0.8940677966101694,
+          "mean_probability": 0.7346089482307434,
+          "median_probability": 0.9063149690628052
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 180,
+        "alert_flip_rate": 0.0009416836256912219,
+        "new_alerts": 85,
+        "removed_alerts": 95,
+        "mean_absolute_probability_change": 0.0003558251482900232,
+        "p95_absolute_probability_change": 0.0001709194912109524
+      }
+    },
+    "coherent_x0.90": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.9085674892511907,
+        "roc_auc": 0.9992082656996715,
+        "precision": 0.6426829268292683,
+        "recall": 0.8932203389830509,
+        "f1": 0.7475177304964539,
+        "alert_rate": 0.008579784145186689,
+        "alerts": 1640,
+        "true_positive": 1054,
+        "false_positive": 586,
+        "true_negative": 189381,
+        "false_negative": 126
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 586,
+          "alert_rate": 0.0030847462980412386,
+          "mean_probability": 0.0025652670301496983,
+          "median_probability": 3.8577398654010553e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 1054,
+          "alert_rate": 0.8932203389830509,
+          "mean_probability": 0.7449114322662354,
+          "median_probability": 0.9088645577430725
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 94,
+        "alert_flip_rate": 0.0004917681156387492,
+        "new_alerts": 33,
+        "removed_alerts": 61,
+        "mean_absolute_probability_change": 0.00017567230679560453,
+        "p95_absolute_probability_change": 8.30532080726698e-05
+      }
+    },
+    "coherent_x1.10": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.9137123530034412,
+        "roc_auc": 0.9992409430968965,
+        "precision": 0.6307692307692307,
+        "recall": 0.9033898305084745,
+        "f1": 0.7428571428571429,
+        "alert_rate": 0.008841362930100917,
+        "alerts": 1690,
+        "true_positive": 1066,
+        "false_positive": 624,
+        "true_negative": 189343,
+        "false_negative": 114
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 624,
+          "alert_rate": 0.003284781040917633,
+          "mean_probability": 0.002613635500892997,
+          "median_probability": 3.5702427884747034e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 1066,
+          "alert_rate": 0.9033898305084745,
+          "mean_probability": 0.7629562020301819,
+          "median_probability": 0.9210754632949829
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 88,
+        "alert_flip_rate": 0.00046037866144904186,
+        "new_alerts": 55,
+        "removed_alerts": 33,
+        "mean_absolute_probability_change": 0.00017738708993420005,
+        "p95_absolute_probability_change": 7.811132672941312e-05
+      }
+    },
+    "coherent_x1.20": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.9142545573207034,
+        "roc_auc": 0.9992396716896325,
+        "precision": 0.6258782201405152,
+        "recall": 0.9059322033898305,
+        "f1": 0.7403047091412742,
+        "alert_rate": 0.00893553129267004,
+        "alerts": 1708,
+        "true_positive": 1069,
+        "false_positive": 639,
+        "true_negative": 189328,
+        "false_negative": 111
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 639,
+          "alert_rate": 0.003363742123631999,
+          "mean_probability": 0.0026746862567961216,
+          "median_probability": 3.4576004169159513e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 1069,
+          "alert_rate": 0.9059322033898305,
+          "mean_probability": 0.7713145017623901,
+          "median_probability": 0.9273320436477661
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 174,
+        "alert_flip_rate": 0.0009102941715015146,
+        "new_alerts": 107,
+        "removed_alerts": 67,
+        "mean_absolute_probability_change": 0.0003617220791056752,
+        "p95_absolute_probability_change": 0.0001507845736341551
+      }
+    },
+    "independent_amount_x0.80": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.7908971867872453,
+        "roc_auc": 0.9967612305188064,
+        "precision": 0.5886666666666667,
+        "recall": 0.7483050847457627,
+        "f1": 0.658955223880597,
+        "alert_rate": 0.00784736354742685,
+        "alerts": 1500,
+        "true_positive": 883,
+        "false_positive": 617,
+        "true_negative": 189350,
+        "false_negative": 297
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 617,
+          "alert_rate": 0.003247932535650929,
+          "mean_probability": 0.0027776220813393593,
+          "median_probability": 3.9610749034101056e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 883,
+          "alert_rate": 0.7483050847457627,
+          "mean_probability": 0.6507507562637329,
+          "median_probability": 0.7845414876937866
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 1132,
+        "alert_flip_rate": 0.005922143690458129,
+        "new_alerts": 482,
+        "removed_alerts": 650,
+        "mean_absolute_probability_change": 0.0028591654263436794,
+        "p95_absolute_probability_change": 0.0034658717922866344
+      }
+    },
+    "independent_amount_x0.90": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.8857445837865666,
+        "roc_auc": 0.9988361515599542,
+        "precision": 0.6184789440603394,
+        "recall": 0.8338983050847457,
+        "f1": 0.7102129195236376,
+        "alert_rate": 0.008323436935970745,
+        "alerts": 1591,
+        "true_positive": 984,
+        "false_positive": 607,
+        "true_negative": 189360,
+        "false_negative": 196
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 607,
+          "alert_rate": 0.0031952918138413514,
+          "mean_probability": 0.002666493644937873,
+          "median_probability": 3.8177515077238156e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 984,
+          "alert_rate": 0.8338983050847457,
+          "mean_probability": 0.7367152571678162,
+          "median_probability": 0.9144101142883301
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 763,
+        "alert_flip_rate": 0.003991692257791124,
+        "new_alerts": 343,
+        "removed_alerts": 420,
+        "mean_absolute_probability_change": 0.0013238359242677689,
+        "p95_absolute_probability_change": 0.0015459791757166386
+      }
+    },
+    "independent_amount_x1.10": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.8379833867306798,
+        "roc_auc": 0.9980735949410661,
+        "precision": 0.6207584830339321,
+        "recall": 0.7906779661016949,
+        "f1": 0.6954901229966456,
+        "alert_rate": 0.007863058274521703,
+        "alerts": 1503,
+        "true_positive": 933,
+        "false_positive": 570,
+        "true_negative": 189397,
+        "false_negative": 247
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 570,
+          "alert_rate": 0.0030005211431459147,
+          "mean_probability": 0.002519048284739256,
+          "median_probability": 3.6021795897685227e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 933,
+          "alert_rate": 0.7906779661016949,
+          "mean_probability": 0.6592045426368713,
+          "median_probability": 0.7337188720703125
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 787,
+        "alert_flip_rate": 0.004117250074549954,
+        "new_alerts": 311,
+        "removed_alerts": 476,
+        "mean_absolute_probability_change": 0.0016442359192296863,
+        "p95_absolute_probability_change": 0.0013405564241111279
+      }
+    },
+    "independent_amount_x1.20": {
+      "metrics": {
+        "rows": 191147,
+        "fraud_count": 1180,
+        "fraud_prevalence": 0.006173259323975788,
+        "pr_auc": 0.7659062234829045,
+        "roc_auc": 0.9965386405649581,
+        "precision": 0.5949535192563081,
+        "recall": 0.7593220338983051,
+        "f1": 0.6671630677587491,
+        "alert_rate": 0.007878753001616556,
+        "alerts": 1506,
+        "true_positive": 896,
+        "false_positive": 610,
+        "true_negative": 189357,
+        "false_negative": 284
+      },
+      "segments": {
+        "legitimate": {
+          "rows": 189967,
+          "alerts": 610,
+          "alert_rate": 0.0032110840303842246,
+          "mean_probability": 0.0024994532577693462,
+          "median_probability": 3.5177487008389297e-13
+        },
+        "fraud": {
+          "rows": 1180,
+          "alerts": 896,
+          "alert_rate": 0.7593220338983051,
+          "mean_probability": 0.5133911371231079,
+          "median_probability": 0.40070414543151855
+        }
+      },
+      "alert_stability": {
+        "alert_flips": 1086,
+        "alert_flip_rate": 0.005681491208337039,
+        "new_alerts": 462,
+        "removed_alerts": 624,
+        "mean_absolute_probability_change": 0.0033345655538141727,
+        "p95_absolute_probability_change": 0.002524126088246703
+      }
+    }
+  },
+  "scenario_count": 8,
+  "limitations": [
+    "PaySim is synthetic data, not production banking traffic.",
+    "Coherent common scaling preserves accounting relationships but does not simulate every real-world economic shock.",
+    "Independent amount-only stress intentionally breaks some amount-to-balance relationships.",
+    "The model's response to counterfactual inputs is not proof of causal behaviour.",
+    "The experiment uses the frozen validation threshold and does not estimate production performance.",
+    "Transaction-level scaling is a sensitivity experiment, not a forecast of future monetary distributions."
+  ]
+}
