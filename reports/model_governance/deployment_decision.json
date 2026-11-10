@@ -1,0 +1,70 @@
+{
+  "overall_decision": "CONDITIONAL_GO_FOR_SHADOW_ONLY",
+  "autonomous_production_decision": "NO_GO",
+  "human_reviewed_controlled_pilot": "NOT_YET_APPROVED",
+  "evidence_files_expected": 11,
+  "evidence_files_found": 10,
+  "missing_evidence": [
+    "missed_exposure"
+  ],
+  "risk_count": 12,
+  "critical_risk_count": 7,
+  "readiness_dimensions": 9,
+  "fully_completed_dimensions": 2,
+  "known_critical_model_weakness": "CASH_OUT fraud between 50K and 250K: 164 of 168 fraud cases were missed in the held-out synthetic test segment.",
+  "production_blockers": [
+    "Representative real-world transaction and fraud-label validation.",
+    "Remediation or formally accepted treatment of the weak CASH_OUT segment.",
+    "Live monitoring, incident response and rollback procedures.",
+    "Security, privacy and compliance approval.",
+    "Human review, override and escalation governance.",
+    "End-to-end service, integration and load testing."
+  ],
+  "decision_rationale": "Offline research evidence is substantial, but synthetic data, segment-level weaknesses and missing operational controls prevent autonomous production approval.",
+  "evidence_status": {
+    "frozen_test": {
+      "path": "reports/final_evaluation/final_test_results.json",
+      "exists": true
+    },
+    "model_freeze": {
+      "path": "reports/model_freeze/model_freeze_manifest.json",
+      "exists": true
+    },
+    "error_analysis": {
+      "path": "reports/error_analysis/error_summary.json",
+      "exists": true
+    },
+    "missed_exposure": {
+      "path": "reports/missed_fraud_exposure/missed_fraud_exposure_summary.json",
+      "exists": false
+    },
+    "cashout_analysis": {
+      "path": "reports/cashout_failure_analysis/cashout_failure_summary.json",
+      "exists": true
+    },
+    "temporal_drift": {
+      "path": "reports/temporal_drift_audit/temporal_drift_summary.json",
+      "exists": true
+    },
+    "formal_drift": {
+      "path": "reports/formal_feature_drift/formal_drift_metadata.json",
+      "exists": true
+    },
+    "segment_drift": {
+      "path": "reports/segment_level_fraud_drift/segment_drift_summary.json",
+      "exists": true
+    },
+    "grouped_shap": {
+      "path": "reports/grouped_shap_explainability/grouped_shap_summary.json",
+      "exists": true
+    },
+    "robustness": {
+      "path": "reports/robustness_stress_test/robustness_summary.json",
+      "exists": true
+    },
+    "coherent_stress": {
+      "path": "reports/coherent_financial_stress_test/coherent_stress_summary.json",
+      "exists": true
+    }
+  }
+}

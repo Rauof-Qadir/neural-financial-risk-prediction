@@ -1,0 +1,87 @@
+{
+  "purpose": "Proposed monitoring specification for a future controlled pilot. Not an approved production policy.",
+  "model_identity": {
+    "frozen_model_sha256": "ae9d3e357c2e0dcf9abe0600245eede7ebfc0198338009a5c084185f7302189b",
+    "frozen_validation_threshold": 0.1444527953863144,
+    "require_hash_verification": true,
+    "record_model_version_per_prediction": true,
+    "record_feature_schema_version": true
+  },
+  "metrics": [
+    {
+      "name": "input_schema_failure_rate",
+      "type": "data_quality",
+      "frequency": "continuous",
+      "action": "Investigate immediately if schema validation fails."
+    },
+    {
+      "name": "invalid_numeric_input_rate",
+      "type": "data_quality",
+      "frequency": "continuous",
+      "action": "Reject invalid values; investigate source system."
+    },
+    {
+      "name": "transaction_type_mix",
+      "type": "data_drift",
+      "frequency": "daily",
+      "action": "Compare with approved reference distribution."
+    },
+    {
+      "name": "feature_psi",
+      "type": "data_drift",
+      "frequency": "daily_or_weekly",
+      "action": "Use provisional PSI review bands: below 0.10 low, 0.10-0.25 investigate, above 0.25 escalate. Calibrate these bands for real data."
+    },
+    {
+      "name": "fraud_prevalence",
+      "type": "label_drift",
+      "frequency": "when_labels_arrive",
+      "action": "Compare observed prevalence with the approved reference; investigate material changes."
+    },
+    {
+      "name": "precision_recall_pr_auc",
+      "type": "model_performance",
+      "frequency": "weekly_or_when_labels_arrive",
+      "action": "Calculate only on matured labels and compare by transaction type and amount band."
+    },
+    {
+      "name": "cashout_50k_250k_recall",
+      "type": "critical_segment_performance",
+      "frequency": "weekly_or_when_labels_arrive",
+      "action": "Escalate poor recall; this segment is a known model weakness."
+    },
+    {
+      "name": "alert_rate_and_queue_volume",
+      "type": "operations",
+      "frequency": "continuous_and_daily",
+      "action": "Compare with staffed review capacity; do not silently change the threshold."
+    },
+    {
+      "name": "missed_fraud_gross_amount",
+      "type": "financial_risk",
+      "frequency": "when_labels_arrive",
+      "action": "Track gross transaction amount separately from confirmed realised loss."
+    },
+    {
+      "name": "prediction_latency_and_error_rate",
+      "type": "service_health",
+      "frequency": "continuous",
+      "action": "Alert on service degradation and failed scoring."
+    },
+    {
+      "name": "reviewer_override_rate",
+      "type": "human_governance",
+      "frequency": "weekly",
+      "action": "Investigate repeated overrides and segment patterns."
+    }
+  ],
+  "governance_rules": [
+    "Do not automatically retrain or retune from monitoring alerts.",
+    "Require approval and validation for threshold changes.",
+    "Keep an immutable prediction and model-version audit trail.",
+    "Use matured fraud labels for performance calculations.",
+    "Separate gross transaction exposure from confirmed financial loss.",
+    "Escalate critical segment degradation to the model owner."
+  ],
+  "important_limitation": "Monitoring thresholds are proposed starting points, not empirically approved limits for a real financial institution."
+}

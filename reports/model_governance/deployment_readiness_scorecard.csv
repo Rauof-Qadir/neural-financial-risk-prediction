@@ -1,0 +1,10 @@
+dimension,status,evidence,gap
+Offline model evaluation,Completed,Frozen temporal evaluation and benchmark reports.,Results are based on synthetic PaySim data.
+Segment-level risk analysis,Completed,CASH_OUT amount-band and missed-fraud investigations.,Weak 50K-250K CASH_OUT segment requires remediation.
+Explainability,Completed with limitations,Grouped SHAP experiment and additivity checks.,Explanations are not causal and need domain validation.
+Drift and robustness analysis,Research completed,"Temporal, formal feature and stress testing reports.",Live drift monitoring and alert thresholds are not calibrated.
+Real-world data validation,Not completed,No representative real banking dataset.,Required before any production performance claim.
+Scoring service and integration,Not assessed in this governance phase,Requires a separately verified production scoring workflow.,"Authentication, resilience, load and integration tests."
+Monitoring and incident response,Not completed,Offline reports only.,"Monitoring service, alert delivery, runbooks and rollback."
+Security and compliance,Not completed,No formal approval evidence.,"Privacy, access control, security and compliance review."
+Human decision governance,Not completed,No operational review workflow evidence.,"Human oversight, override and escalation process."
