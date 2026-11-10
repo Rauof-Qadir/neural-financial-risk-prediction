@@ -1,0 +1,46 @@
+{
+    "segment": "CASH_OUT fraud, $50,000 to less than $250,000",
+    "missed_fraud_count": 164,
+    "mean_amount": 124673.06426829268,
+    "median_amount": 114558.735,
+    "mean_fraud_probability": 0.09216789156198502,
+    "frozen_threshold": 0.1444527953863144,
+    "top_features_by_mean_absolute_shap": [
+        {
+            "feature": "type_PAYMENT",
+            "mean_absolute_shap": 11.559090323564483,
+            "mean_signed_shap": 11.559090323564483,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "log_oldbalanceOrg",
+            "mean_absolute_shap": 3.866615173293323,
+            "mean_signed_shap": 3.866615173293323,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "type_CASH_IN",
+            "mean_absolute_shap": 3.7741594329112913,
+            "mean_signed_shap": 3.7741594329112913,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "type_CASH_OUT",
+            "mean_absolute_shap": 2.699681225346356,
+            "mean_signed_shap": 2.699681225346356,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "log_amount",
+            "mean_absolute_shap": 1.8800060574601336,
+            "mean_signed_shap": 1.8800060574601336,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        }
+    ],
+    "interpretation_warning": "SHAP describes the frozen model's prediction behavior. It does not establish causal reasons for fraud or prove that a feature caused a missed detection."
+}

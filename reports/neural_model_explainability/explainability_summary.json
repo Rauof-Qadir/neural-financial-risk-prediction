@@ -1,0 +1,150 @@
+{
+    "project": "Neural Financial Risk Prediction System",
+    "analysis": "Model explainability and feature-level failure investigation",
+    "model": "Frozen PyTorch MLP",
+    "model_sha256": "ae9d3e357c2e0dcf9abe0600245eede7ebfc0198338009a5c084185f7302189b",
+    "best_training_epoch": 7,
+    "frozen_threshold": 0.1444527953863144,
+    "explainer": "DeepExplainer",
+    "explanation_output": "Model logits; positive SHAP values push the logit upward.",
+    "background_source": "Training feature dataset only",
+    "background_size": 128,
+    "global_explanation_sample_size": 500,
+    "false_negative_explanation_count": 212,
+    "global_top_5_features": [
+        {
+            "feature": "type_PAYMENT",
+            "mean_absolute_shap": 12.869360622406006,
+            "mean_signed_shap": 2.1699030532836914,
+            "median_signed_shap": 9.761714458465576,
+            "positive_contribution_rate": 0.668,
+            "negative_contribution_rate": 0.332
+        },
+        {
+            "feature": "type_CASH_IN",
+            "mean_absolute_shap": 7.524195982456208,
+            "mean_signed_shap": -2.320300168514252,
+            "median_signed_shap": 3.371599316596985,
+            "positive_contribution_rate": 0.742,
+            "negative_contribution_rate": 0.258
+        },
+        {
+            "feature": "log_oldbalanceOrg",
+            "mean_absolute_shap": 3.4881514035388825,
+            "mean_signed_shap": -0.7525934058353305,
+            "median_signed_shap": -0.6185236871242523,
+            "positive_contribution_rate": 0.452,
+            "negative_contribution_rate": 0.548
+        },
+        {
+            "feature": "log_oldbalanceDest",
+            "mean_absolute_shap": 2.1322922275066376,
+            "mean_signed_shap": -0.11864242458343506,
+            "median_signed_shap": -1.0712376832962036,
+            "positive_contribution_rate": 0.462,
+            "negative_contribution_rate": 0.538
+        },
+        {
+            "feature": "step",
+            "mean_absolute_shap": 1.6418251527547836,
+            "mean_signed_shap": -1.6418251527547836,
+            "median_signed_shap": -1.2834570407867432,
+            "positive_contribution_rate": 0.0,
+            "negative_contribution_rate": 1.0
+        }
+    ],
+    "false_negative_top_5_features": [
+        {
+            "feature": "type_PAYMENT",
+            "mean_absolute_shap": 11.584989385784796,
+            "mean_signed_shap": 11.584989385784796,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "log_oldbalanceOrg",
+            "mean_absolute_shap": 3.929314083648178,
+            "mean_signed_shap": 3.841943328110677,
+            "positive_contribution_rate": 0.9952830188679245,
+            "negative_contribution_rate": 0.0047169811320754715
+        },
+        {
+            "feature": "type_CASH_IN",
+            "mean_absolute_shap": 3.781962752342224,
+            "mean_signed_shap": 3.781962752342224,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        },
+        {
+            "feature": "type_CASH_OUT",
+            "mean_absolute_shap": 2.699702799320221,
+            "mean_signed_shap": 2.6876071612789945,
+            "positive_contribution_rate": 0.9952830188679245,
+            "negative_contribution_rate": 0.0047169811320754715
+        },
+        {
+            "feature": "log_amount",
+            "mean_absolute_shap": 1.8927858831747524,
+            "mean_signed_shap": 1.8927858831747524,
+            "positive_contribution_rate": 1.0,
+            "negative_contribution_rate": 0.0
+        }
+    ],
+    "cashout_50k_250k_analysis": {
+        "segment": "CASH_OUT fraud, $50,000 to less than $250,000",
+        "missed_fraud_count": 164,
+        "mean_amount": 124673.06426829268,
+        "median_amount": 114558.735,
+        "mean_fraud_probability": 0.09216789156198502,
+        "frozen_threshold": 0.1444527953863144,
+        "top_features_by_mean_absolute_shap": [
+            {
+                "feature": "type_PAYMENT",
+                "mean_absolute_shap": 11.559090323564483,
+                "mean_signed_shap": 11.559090323564483,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            },
+            {
+                "feature": "log_oldbalanceOrg",
+                "mean_absolute_shap": 3.866615173293323,
+                "mean_signed_shap": 3.866615173293323,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            },
+            {
+                "feature": "type_CASH_IN",
+                "mean_absolute_shap": 3.7741594329112913,
+                "mean_signed_shap": 3.7741594329112913,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            },
+            {
+                "feature": "type_CASH_OUT",
+                "mean_absolute_shap": 2.699681225346356,
+                "mean_signed_shap": 2.699681225346356,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            },
+            {
+                "feature": "log_amount",
+                "mean_absolute_shap": 1.8800060574601336,
+                "mean_signed_shap": 1.8800060574601336,
+                "positive_contribution_rate": 1.0,
+                "negative_contribution_rate": 0.0
+            }
+        ],
+        "interpretation_warning": "SHAP describes the frozen model's prediction behavior. It does not establish causal reasons for fraud or prove that a feature caused a missed detection."
+    },
+    "scientific_limitations": [
+        "SHAP explains model behavior, not causal effects.",
+        "Global explanations use a deterministic test sample.",
+        "Background observations come from training data.",
+        "Test explanations are retrospective and are not used for tuning.",
+        "Synthetic PaySim findings are not proof of real-world bank behavior.",
+        "SHAP magnitudes are on the model logit scale."
+    ],
+    "threshold_retuned": false,
+    "model_retrained": false,
+    "final_test_report_modified": false
+}
