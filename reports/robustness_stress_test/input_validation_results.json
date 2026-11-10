@@ -1,0 +1,48 @@
+{
+    "tests": [
+        {
+            "test": "NaN input",
+            "expected": "REJECT",
+            "actual": "REJECT",
+            "passed": true,
+            "reason": "Input contains NaN or infinity."
+        },
+        {
+            "test": "Infinite input",
+            "expected": "REJECT",
+            "actual": "REJECT",
+            "passed": true,
+            "reason": "Input contains NaN or infinity."
+        },
+        {
+            "test": "All-zero transaction type",
+            "expected": "REJECT",
+            "actual": "REJECT",
+            "passed": true,
+            "reason": "Each row must contain exactly one transaction type."
+        },
+        {
+            "test": "Multiple active transaction types",
+            "expected": "REJECT",
+            "actual": "REJECT",
+            "passed": true,
+            "reason": "Each row must contain exactly one transaction type."
+        },
+        {
+            "test": "Fractional one-hot value",
+            "expected": "REJECT",
+            "actual": "REJECT",
+            "passed": true,
+            "reason": "Transaction type values must be binary."
+        },
+        {
+            "test": "Wrong feature count",
+            "expected": "REJECT",
+            "actual": "REJECT",
+            "passed": true,
+            "reason": "Unexpected feature count."
+        }
+    ],
+    "passed": 6,
+    "failed": 0
+}

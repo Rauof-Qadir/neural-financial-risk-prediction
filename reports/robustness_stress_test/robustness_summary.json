@@ -1,0 +1,33 @@
+{
+    "project": "Neural Financial Risk Prediction System",
+    "phase": "Robustness and Stress Testing",
+    "model_sha256": "ae9d3e357c2e0dcf9abe0600245eede7ebfc0198338009a5c084185f7302189b",
+    "model_best_epoch": 7,
+    "threshold": 0.1444527953863144,
+    "dataset": "Validation only",
+    "validation_rows": 191147,
+    "validation_frauds": 1180,
+    "baseline_metrics": {
+        "average_precision": 0.9119292909591689,
+        "roc_auc": 0.999231253635221,
+        "precision": 0.6366906474820144,
+        "recall": 0.9,
+        "f1": 0.7457865168539326,
+        "alert_rate": 0.008726268264738657,
+        "alerts": 1668,
+        "true_positives": 1062,
+        "false_positives": 606,
+        "true_negatives": 189361,
+        "false_negatives": 118,
+        "threshold": 0.1444527953863144
+    },
+    "scenario_count": 36,
+    "prevalence_scenario_count": 6,
+    "input_validation_passed": 6,
+    "input_validation_failed": 0,
+    "model_retrained": false,
+    "threshold_retuned": false,
+    "final_test_used": false,
+    "final_test_report_modified": false,
+    "interpretation_warning": "Perturbation and transaction-type experiments are counterfactual sensitivity tests, not real-world performance estimates. Labels remain unchanged. Prevalence estimates assume validation TPR/FPR remain constant across prevalence scenarios."
+}
