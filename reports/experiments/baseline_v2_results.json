@@ -1,0 +1,31 @@
+{
+    "model": "SGD Logistic Regression V2",
+    "feature_version": "v2_log1p",
+    "fraud_sample_weight": 50.0,
+    "epochs": 5,
+    "learning_rate": 0.001,
+    "training_seconds": 15.56375939999998,
+    "validation_average_precision": 0.5110494148123181,
+    "validation_roc_auc": 0.9700429481373796,
+    "validation_threshold": 0.9318526983261108,
+    "validation_precision": 0.0538457638290321,
+    "validation_recall": 0.9,
+    "validation_f1": 0.10161220877386021,
+    "validation_alert_rate": 0.1031823674972665,
+    "validation_confusion_matrix": [
+        [
+            171306,
+            18661
+        ],
+        [
+            118,
+            1062
+        ]
+    ],
+    "probability_min": 0.0002939019468612969,
+    "probability_max": 0.9998366832733154,
+    "probability_mean": 0.379287451505661,
+    "probability_median": 0.2974325716495514,
+    "exact_zero_count": 0,
+    "exact_one_count": 0
+}

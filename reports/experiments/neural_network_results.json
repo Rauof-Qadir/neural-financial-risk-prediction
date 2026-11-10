@@ -1,0 +1,96 @@
+{
+    "model": "PyTorch FinancialRiskMLP",
+    "architecture": [
+        9,
+        64,
+        32,
+        1
+    ],
+    "dropout": 0.2,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "fraud_pos_weight": 50.0,
+    "batch_size": 4096,
+    "best_epoch": 7,
+    "training_seconds": 172.4994078000018,
+    "validation_average_precision": 0.9119292909591687,
+    "validation_roc_auc": 0.999231253635221,
+    "validation_threshold": 0.1444527953863144,
+    "validation_precision": 0.6366906474820144,
+    "validation_recall": 0.9,
+    "validation_f1": 0.7457865168539326,
+    "validation_alert_rate": 0.008726268264738657,
+    "validation_confusion_matrix": [
+        [
+            189361,
+            606
+        ],
+        [
+            118,
+            1062
+        ]
+    ],
+    "probability_min": 3.463758673906985e-32,
+    "probability_max": 1.0,
+    "probability_mean": 0.0072175562381744385,
+    "probability_median": 3.795635680758913e-13,
+    "history": [
+        {
+            "epoch": 1,
+            "train_loss": 0.10024701478537357,
+            "validation_pr_auc": 0.688463915858716,
+            "validation_roc_auc": 0.9857230243290249,
+            "epoch_seconds": 21.954569399997126
+        },
+        {
+            "epoch": 2,
+            "train_loss": 0.04699769964647672,
+            "validation_pr_auc": 0.729896165000488,
+            "validation_roc_auc": 0.9927384444024311,
+            "epoch_seconds": 21.51312920000055
+        },
+        {
+            "epoch": 3,
+            "train_loss": 0.03885429388741207,
+            "validation_pr_auc": 0.8250422140722602,
+            "validation_roc_auc": 0.9974559363700367,
+            "epoch_seconds": 20.97503329999745
+        },
+        {
+            "epoch": 4,
+            "train_loss": 0.03170621834947831,
+            "validation_pr_auc": 0.8677910786351999,
+            "validation_roc_auc": 0.9985437702694661,
+            "epoch_seconds": 21.519976900002803
+        },
+        {
+            "epoch": 5,
+            "train_loss": 0.02677871993990504,
+            "validation_pr_auc": 0.876530911934912,
+            "validation_roc_auc": 0.9986208576993704,
+            "epoch_seconds": 20.846099100002903
+        },
+        {
+            "epoch": 6,
+            "train_loss": 0.023102505654151437,
+            "validation_pr_auc": 0.900198853943265,
+            "validation_roc_auc": 0.9990148065859431,
+            "epoch_seconds": 21.528728799996316
+        },
+        {
+            "epoch": 7,
+            "train_loss": 0.021132082351884823,
+            "validation_pr_auc": 0.9119292909591687,
+            "validation_roc_auc": 0.999231253635221,
+            "epoch_seconds": 21.419737700009136
+        },
+        {
+            "epoch": 8,
+            "train_loss": 0.020190870372467962,
+            "validation_pr_auc": 0.8957460243569331,
+            "validation_roc_auc": 0.9990190847598598,
+            "epoch_seconds": 21.06524480000371
+        }
+    ]
+}

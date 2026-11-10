@@ -1,0 +1,25 @@
+{
+    "model": "SGDClassifier Logistic Regression",
+    "epochs": 3,
+    "positive_class_weight": 1051.0683272790175,
+    "validation_average_precision": 0.014987986426382766,
+    "validation_roc_auc": 0.794069268765949,
+    "validation_threshold": 1.0,
+    "validation_precision": 0.01503441381166609,
+    "validation_recall": 0.9940677966101695,
+    "validation_f1": 0.0296208381207308,
+    "validation_alert_rate": 0.4081727675558601,
+    "validation_confusion_matrix": [
+        [
+            113119,
+            76848
+        ],
+        [
+            7,
+            1173
+        ]
+    ],
+    "minimum_recall_target": 0.9,
+    "training_rows": 6082007,
+    "validation_rows": 191147
+}

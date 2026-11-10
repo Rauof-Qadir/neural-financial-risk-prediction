@@ -1,0 +1,87 @@
+{
+    "project": "Neural Financial Risk Prediction System",
+    "evaluation_status": "COMPLETED",
+    "evaluation_policy": "Untouched temporal test set. Both thresholds were frozen on validation data. No test-based threshold tuning.",
+    "test_data": {
+        "artifact": "data\\processed\\test_features_v2.parquet",
+        "rows": 89466,
+        "fraud_transactions": 1252,
+        "normal_transactions": 88214,
+        "fraud_prevalence": 0.01399414302640109,
+        "features": [
+            "step",
+            "log_amount",
+            "log_oldbalanceOrg",
+            "log_oldbalanceDest",
+            "type_CASH_IN",
+            "type_CASH_OUT",
+            "type_DEBIT",
+            "type_PAYMENT",
+            "type_TRANSFER"
+        ]
+    },
+    "distribution_comparison": {
+        "validation_fraud_prevalence": 0.006173259323975788,
+        "test_fraud_prevalence": 0.01399414302640109,
+        "test_to_validation_prevalence_ratio": 2.2668969975148214
+    },
+    "neural_network": {
+        "model": "PyTorch FinancialRiskMLP",
+        "results": {
+            "threshold": 0.1444527953863144,
+            "pr_auc": 0.9372491125471515,
+            "roc_auc": 0.9987127314052068,
+            "precision": 0.8280254777070064,
+            "recall": 0.8306709265175719,
+            "f1": 0.8293460925039873,
+            "alert_rate": 0.014038852748530168,
+            "alert_count": 1256,
+            "confusion_matrix": {
+                "true_negative": 87998,
+                "false_positive": 216,
+                "false_negative": 212,
+                "true_positive": 1040
+            },
+            "brier_score": 0.003257494214457353,
+            "log_loss": 0.011375449982222894
+        }
+    },
+    "logistic_regression": {
+        "model": "Logistic Regression V2",
+        "results": {
+            "threshold": 0.9318526983261108,
+            "pr_auc": 0.5836285039937953,
+            "roc_auc": 0.964157916404422,
+            "precision": 0.05586541513626264,
+            "recall": 0.9840255591054313,
+            "f1": 0.1057283844668526,
+            "alert_rate": 0.2464958755281336,
+            "alert_count": 22053,
+            "confusion_matrix": {
+                "true_negative": 67393,
+                "false_positive": 20821,
+                "false_negative": 20,
+                "true_positive": 1232
+            },
+            "brier_score": 0.46560561656951904,
+            "log_loss": 1.6423473358154297
+        }
+    },
+    "validation_reference": {
+        "neural_network": {
+            "true_positives": 1062,
+            "false_positives": 606,
+            "true_negatives": 189361,
+            "false_negatives": 118,
+            "precision": 0.6366906474820144,
+            "recall": 0.9,
+            "alert_rate": 0.008726268264738657
+        },
+        "logistic_regression": {
+            "precision": 0.0538457638290321,
+            "recall": 0.9,
+            "alert_rate": 0.1031823674972665
+        }
+    },
+    "important_note": "These results represent one temporal holdout from the synthetic PaySim dataset. They do not guarantee production performance."
+}

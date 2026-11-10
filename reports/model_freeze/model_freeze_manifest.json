@@ -58,7 +58,18 @@
         "recall": 0.9423728813559322
     },
     "final_test": {
-        "status": "NOT_EVALUATED",
-        "threshold_must_not_be_retuned": true
+        "status": "COMPLETED",
+        "threshold_must_not_be_retuned": true,
+        "report": "reports\\final_evaluation\\final_test_results.json"
+    },
+    "baseline_decision_policy": {
+        "selection_method": "Highest precision among thresholds achieving at least target recall",
+        "recall_target": 0.9,
+        "frozen_probability_threshold": 0.9318526983261108
+    },
+    "baseline_validation_performance": {
+        "precision": 0.0538457638290321,
+        "recall": 0.9,
+        "alert_rate": 0.1031823674972665
     }
 }
