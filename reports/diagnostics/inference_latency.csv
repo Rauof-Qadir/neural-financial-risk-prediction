@@ -1,0 +1,3 @@
+model,device,batch_size,benchmark_runs,p50_batch_latency_ms,p95_batch_latency_ms,p99_batch_latency_ms,median_latency_per_transaction_ms,throughput_transactions_per_second
+Logistic Regression V2,cpu,1024,50,0.2194499975303188,0.3198050049832091,0.33320199625450186,0.00021430663821320195,4666211.034513801
+PyTorch MLP,cpu,1024,50,0.6605500020668842,1.3698649971047416,1.769449005660134,0.0006450683613934416,1550223.2939154764

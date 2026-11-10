@@ -1,0 +1,131 @@
+{
+    "dataset": "PaySim validation V2",
+    "validation_rows": 191147,
+    "fraud_transactions": 1180,
+    "fraud_prevalence": 0.006173259323975788,
+    "device": "cpu",
+    "models": {
+        "Logistic Regression V2": {
+            "model": "Logistic Regression V2",
+            "pr_auc": 0.5110494148123181,
+            "roc_auc": 0.9700429481373796,
+            "threshold_for_90pct_recall": 0.9318526983261108,
+            "precision": 0.0538457638290321,
+            "recall": 0.9,
+            "f1": 0.10161220877386021,
+            "alert_rate": 0.1031823674972665,
+            "true_positives": 1062,
+            "false_positives": 18661,
+            "true_negatives": 171306,
+            "false_negatives": 118,
+            "brier_score": 0.25142743899380515,
+            "log_loss": 0.8164891211977562,
+            "expected_calibration_error": 0.37311418294750653,
+            "calibration_method": "equal_frequency",
+            "calibration_bins": 10,
+            "brier_reference": 0.006135150193294734,
+            "brier_skill_score": -39.98146436066011
+        },
+        "PyTorch MLP": {
+            "model": "PyTorch MLP",
+            "pr_auc": 0.9119292909591689,
+            "roc_auc": 0.999231253635221,
+            "threshold_for_90pct_recall": 0.1444527953863144,
+            "precision": 0.6366906474820144,
+            "recall": 0.9,
+            "f1": 0.7457865168539326,
+            "alert_rate": 0.008726268264738657,
+            "true_positives": 1062,
+            "false_positives": 606,
+            "true_negatives": 189361,
+            "false_negatives": 118,
+            "brier_score": 0.0015753127159982526,
+            "log_loss": 0.00617958436712804,
+            "expected_calibration_error": 0.0010443694142532362,
+            "calibration_method": "equal_frequency",
+            "calibration_bins": 3,
+            "brier_reference": 0.006135150193294734,
+            "brier_skill_score": 0.7432315972117597
+        }
+    },
+    "inference_latency": [
+        {
+            "model": "Logistic Regression V2",
+            "device": "cpu",
+            "batch_size": 1024,
+            "benchmark_runs": 50,
+            "p50_batch_latency_ms": 0.2194499975303188,
+            "p95_batch_latency_ms": 0.3198050049832091,
+            "p99_batch_latency_ms": 0.33320199625450186,
+            "median_latency_per_transaction_ms": 0.00021430663821320195,
+            "throughput_transactions_per_second": 4666211.034513801
+        },
+        {
+            "model": "PyTorch MLP",
+            "device": "cpu",
+            "batch_size": 1024,
+            "benchmark_runs": 50,
+            "p50_batch_latency_ms": 0.6605500020668842,
+            "p95_batch_latency_ms": 1.3698649971047416,
+            "p99_batch_latency_ms": 1.769449005660134,
+            "median_latency_per_transaction_ms": 0.0006450683613934416,
+            "throughput_transactions_per_second": 1550223.2939154764
+        }
+    ],
+    "alert_budget_policy": [
+        {
+            "model": "Logistic Regression V2",
+            "alert_cap": 0.01,
+            "alert_count": 1911,
+            "actual_alert_rate": 0.009997541159421806,
+            "precision": 0.35269492412349557,
+            "recall": 0.5711864406779661,
+            "f1": 0.43610482044645743
+        },
+        {
+            "model": "Logistic Regression V2",
+            "alert_cap": 0.02,
+            "alert_count": 3822,
+            "actual_alert_rate": 0.019995082318843612,
+            "precision": 0.2032967032967033,
+            "recall": 0.6584745762711864,
+            "f1": 0.31067572970811674
+        },
+        {
+            "model": "Logistic Regression V2",
+            "alert_cap": 0.05,
+            "alert_count": 9557,
+            "actual_alert_rate": 0.0499981689485056,
+            "precision": 0.09752014230407031,
+            "recall": 0.7898305084745763,
+            "f1": 0.17360529011828257
+        },
+        {
+            "model": "PyTorch MLP",
+            "alert_cap": 0.01,
+            "alert_count": 1911,
+            "actual_alert_rate": 0.009997541159421806,
+            "precision": 0.5818942961800104,
+            "recall": 0.9423728813559322,
+            "f1": 0.71950824975736
+        },
+        {
+            "model": "PyTorch MLP",
+            "alert_cap": 0.02,
+            "alert_count": 3822,
+            "actual_alert_rate": 0.019995082318843612,
+            "precision": 0.3087388801674516,
+            "recall": 1.0,
+            "f1": 0.47181127548980406
+        },
+        {
+            "model": "PyTorch MLP",
+            "alert_cap": 0.05,
+            "alert_count": 9557,
+            "actual_alert_rate": 0.0499981689485056,
+            "precision": 0.12346970806738516,
+            "recall": 1.0,
+            "f1": 0.2198006892055509
+        }
+    ]
+}

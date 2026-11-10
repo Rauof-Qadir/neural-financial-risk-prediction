@@ -1,0 +1,64 @@
+{
+    "project": "Neural Financial Risk Prediction System",
+    "status": "FROZEN_BEFORE_FINAL_TEST",
+    "selected_model": {
+        "name": "PyTorch FinancialRiskMLP",
+        "architecture": [
+            9,
+            64,
+            32,
+            1
+        ],
+        "dropout": 0.2,
+        "best_epoch": 7,
+        "artifact": "models\\neural_network\\financial_risk_mlp.pt",
+        "sha256": "ae9d3e357c2e0dcf9abe0600245eede7ebfc0198338009a5c084185f7302189b"
+    },
+    "baseline_model": {
+        "name": "Logistic Regression V2",
+        "artifact": "models\\baseline\\logistic_regression_v2.joblib",
+        "sha256": "75551cbb21de7c52c704eafc83d10ee8e8692ef576a0a7602b70fd8916932be6"
+    },
+    "validation_data": {
+        "artifact": "data\\processed\\validation_features_v2.parquet",
+        "rows": 191147,
+        "fraud_transactions": 1180,
+        "fraud_prevalence": 0.006173259323975788
+    },
+    "feature_columns": [
+        "step",
+        "log_amount",
+        "log_oldbalanceOrg",
+        "log_oldbalanceDest",
+        "type_CASH_IN",
+        "type_CASH_OUT",
+        "type_DEBIT",
+        "type_PAYMENT",
+        "type_TRANSFER"
+    ],
+    "decision_policy": {
+        "selection_method": "Highest precision among thresholds achieving at least target recall",
+        "recall_target": 0.9,
+        "frozen_probability_threshold": 0.1444527953863144
+    },
+    "validation_performance": {
+        "true_positives": 1062,
+        "false_positives": 606,
+        "true_negatives": 189361,
+        "false_negatives": 118,
+        "precision": 0.6366906474820144,
+        "recall": 0.9,
+        "alert_rate": 0.008726268264738657
+    },
+    "secondary_alert_budget": {
+        "policy": "Top risk-ranked transactions",
+        "alert_cap": 0.01,
+        "alert_count": 1911,
+        "precision": 0.5818942961800104,
+        "recall": 0.9423728813559322
+    },
+    "final_test": {
+        "status": "NOT_EVALUATED",
+        "threshold_must_not_be_retuned": true
+    }
+}
