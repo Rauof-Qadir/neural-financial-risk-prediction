@@ -1,0 +1,13 @@
+{
+    "analysis": "Missed Fraud Exposure Intelligence",
+    "test_transactions": 89466,
+    "fraud_transactions": 1252,
+    "neural_network_missed": 212,
+    "baseline_missed": 20,
+    "missed_by_both": 0,
+    "only_neural_missed": 212,
+    "only_baseline_missed": 20,
+    "neural_gross_missed_amount": 26345536.980000004,
+    "baseline_gross_missed_amount": 92959.20999999999,
+    "interpretation": "Gross transaction amounts are exposure proxies, not realized or verified bank losses. Loss sensitivity percentages are illustrative."
+}

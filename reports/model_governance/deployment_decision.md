@@ -13,7 +13,7 @@ by a regulated financial institution.
 
 ## Evidence reviewed
 
-- Evidence files found: 10 / 11
+- Evidence files found: 11 / 11
 - Registered risks: 12
 - Critical risks: 7
 - Readiness dimensions: 9

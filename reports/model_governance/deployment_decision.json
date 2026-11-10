@@ -3,10 +3,8 @@
   "autonomous_production_decision": "NO_GO",
   "human_reviewed_controlled_pilot": "NOT_YET_APPROVED",
   "evidence_files_expected": 11,
-  "evidence_files_found": 10,
-  "missing_evidence": [
-    "missed_exposure"
-  ],
+  "evidence_files_found": 11,
+  "missing_evidence": [],
   "risk_count": 12,
   "critical_risk_count": 7,
   "readiness_dimensions": 9,
@@ -36,7 +34,7 @@
     },
     "missed_exposure": {
       "path": "reports/missed_fraud_exposure/missed_fraud_exposure_summary.json",
-      "exists": false
+      "exists": true
     },
     "cashout_analysis": {
       "path": "reports/cashout_failure_analysis/cashout_failure_summary.json",
