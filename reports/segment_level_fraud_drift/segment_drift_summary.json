@@ -1,0 +1,63 @@
+{
+    "project": "Neural Financial Risk Prediction System",
+    "analysis": "Segment-Level Fraud Drift Investigation",
+    "created_by": "segment_level_fraud_drift.py",
+    "batch_size": 100000,
+    "amount_band_definition": {
+        "under_10k": "[0, 10000)",
+        "10k_to_50k": "[10000, 50000)",
+        "50k_to_100k": "[50000, 100000)",
+        "100k_to_250k": "[100000, 250000)",
+        "above_250k": "[250000, infinity)"
+    },
+    "split_metadata": [
+        {
+            "split": "train",
+            "rows": 6082007,
+            "fraud_count": 5781,
+            "fraud_rate": 0.0009505086067806235,
+            "batches_processed": 61
+        },
+        {
+            "split": "validation",
+            "rows": 191147,
+            "fraud_count": 1180,
+            "fraud_rate": 0.006173259323975788,
+            "batches_processed": 2
+        },
+        {
+            "split": "test",
+            "rows": 89466,
+            "fraud_count": 1252,
+            "fraud_rate": 0.01399414302640109,
+            "batches_processed": 1
+        }
+    ],
+    "frozen_model": {
+        "model": "Existing PyTorch MLP",
+        "threshold": 0.1444527953863144,
+        "retrained": false,
+        "threshold_retuned": false,
+        "final_test_rerun": false
+    },
+    "cashout_test_reconciliation": {
+        "total_fraud": 626,
+        "detected_fraud": 415,
+        "missed_fraud": 211,
+        "recall": 0.6629392971246006,
+        "reconciled": true
+    },
+    "interpretation_limits": [
+        "Segment differences are descriptive, not causal evidence.",
+        "Test results are retrospective and were not used for tuning.",
+        "Fraud prevalence changes do not alone prove concept drift.",
+        "Synthetic PaySim patterns should not be generalized as real banking behavior.",
+        "Amount bands use fixed boundaries across all splits."
+    ],
+    "reports": [
+        "segment_fraud_distribution.csv",
+        "cashout_amount_segment_model_performance.csv",
+        "cashout_balance_behavior.csv",
+        "segment_split_comparison.csv"
+    ]
+}
