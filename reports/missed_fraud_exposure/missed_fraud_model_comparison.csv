@@ -1,0 +1,6 @@
+group,missed_fraud_count,gross_transaction_amount,average_transaction_amount,maximum_transaction_amount
+Neural Network,212,26345536.980000004,124271.40084905662,399045.08
+Logistic Regression,20,92959.20999999999,4647.960499999999,18982.32
+Both models,0,0.0,0.0,0.0
+Only Neural Network,212,26345536.980000004,124271.40084905662,399045.08
+Only Logistic Regression,20,92959.20999999999,4647.960499999999,18982.32
