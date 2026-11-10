@@ -49,6 +49,7 @@ class PredictionResponse(BaseModel):
     risk_decision: str
     threshold: float
     model_version: str
+    model_sha256: str
     deployment_mode: str
     shadow_only: bool
 

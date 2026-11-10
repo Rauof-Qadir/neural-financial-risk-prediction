@@ -1,6 +1,6 @@
 
 import logging
-
+from src.monitoring.monitor import prediction_monitor
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
@@ -123,3 +123,21 @@ def deployment_policy():
         "threshold_retuning_enabled": False,
         "final_test_access_enabled": False,
     }
+
+
+@app.get(
+    "/monitoring/summary",
+    tags=["Monitoring"],
+)
+def monitoring_summary():
+
+    return prediction_monitor.get_summary()
+
+
+@app.get(
+    "/monitoring/drift",
+    tags=["Monitoring"],
+)
+def monitoring_drift():
+
+    return prediction_monitor.get_drift()

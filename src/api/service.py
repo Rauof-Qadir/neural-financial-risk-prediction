@@ -5,6 +5,9 @@ import logging
 import uuid
 
 from pathlib import Path
+import time
+
+from src.monitoring.monitor import prediction_monitor
 
 import joblib
 import numpy as np
@@ -268,7 +271,10 @@ class FinancialRiskService:
     # Model inference
     # ------------------------------------------------------
 
+
     def predict(self, transaction) -> dict:
+
+        started_at = time.perf_counter()
 
         features = self.transform_transaction(transaction)
 
@@ -277,11 +283,15 @@ class FinancialRiskService:
         ).reshape(1, -1)
 
         with torch.inference_mode():
+
             logits = self.model(input_tensor)
+
             probability = torch.sigmoid(logits).item()
 
         if not np.isfinite(probability):
-            raise RuntimeError("Model returned an invalid probability.")
+            raise RuntimeError(
+                "Model returned an invalid probability."
+            )
 
         probability = float(
             np.clip(probability, 0.0, 1.0)
@@ -295,21 +305,49 @@ class FinancialRiskService:
 
         request_id = str(uuid.uuid4())
 
-        logger.info(
-            "Scoring completed: request_id=%s decision=%s",
-            request_id,
-            decision,
-        )
+        latency_ms = (
+            time.perf_counter() - started_at
+        ) * 1000
 
-        return {
+        result = {
             "request_id": request_id,
             "risk_probability": probability,
             "risk_decision": decision,
             "threshold": self.threshold,
             "model_version": self.model_version,
+            "model_sha256": self.model_hash,
             "deployment_mode": DEPLOYMENT_MODE,
             "shadow_only": True,
         }
+
+        # Monitoring must never silently change model decisions.
+        # If audit writing fails, preserve the scoring response
+        # and record the monitoring failure in application logs.
+        try:
+
+            prediction_monitor.record_prediction(
+                prediction=result,
+                features=features,
+                transaction_type=transaction.transaction_type.value,
+                latency_ms=latency_ms,
+            )
+
+        except Exception:
+
+            logger.exception(
+                "Prediction monitoring write failed. "
+                "request_id=%s",
+                request_id,
+            )
+
+        logger.info(
+            "Scoring completed: request_id=%s decision=%s latency_ms=%.3f",
+            request_id,
+            decision,
+            latency_ms,
+        )
+
+        return result
 
     # ------------------------------------------------------
     # Model information

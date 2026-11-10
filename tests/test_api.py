@@ -71,6 +71,7 @@ def test_single_prediction():
 
     assert data["threshold"] == risk_service.threshold
     assert data["shadow_only"] is True
+    assert data["model_sha256"] == risk_service.model_hash
     assert data["deployment_mode"] == "SHADOW_ONLY"
     assert len(data["request_id"]) > 0
 
@@ -209,3 +210,19 @@ def test_deployment_policy():
     assert data["automatic_approval"] is False
     assert data["automatic_decline"] is False
     assert data["threshold_retuning_enabled"] is False
+
+def test_monitoring_summary_endpoint():
+
+    response = client.get("/monitoring/summary")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["status"] in [
+        "OK",
+        "NO_PREDICTIONS",
+    ]
+
+
+
