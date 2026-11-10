@@ -1,0 +1,14 @@
+{
+    "test_transactions": 89466,
+    "neural_network": {
+        "Correct": 89038,
+        "False Positive": 216,
+        "False Negative": 212
+    },
+    "logistic_regression": {
+        "Correct": 68625,
+        "False Positive": 20821,
+        "False Negative": 20
+    },
+    "analysis_policy": "Descriptive analysis only. Do not retune using this test set."
+}

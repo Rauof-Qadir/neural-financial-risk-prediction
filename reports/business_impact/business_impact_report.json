@@ -1,0 +1,82 @@
+{
+    "project": "Neural Financial Risk Prediction System",
+    "status": "COMPLETED",
+    "dataset": {
+        "name": "PaySim temporal test set",
+        "transactions": 89466,
+        "fraud_transactions": 1252,
+        "total_transaction_amount": 16400094163.47
+    },
+    "assumptions": {
+        "currency": "USD",
+        "assumption_type": "ILLUSTRATIVE_NOT_ACTUAL_BANK_COSTS",
+        "description": "Replace these example assumptions with institution-approved estimates.",
+        "scenarios": {
+            "low": {
+                "cost_per_false_positive": 2,
+                "cost_per_false_negative": 50
+            },
+            "base": {
+                "cost_per_false_positive": 5,
+                "cost_per_false_negative": 150
+            },
+            "high": {
+                "cost_per_false_positive": 10,
+                "cost_per_false_negative": 500
+            }
+        }
+    },
+    "cost_methodology": "Estimated operational cost equals false positives multiplied by review cost plus false negatives multiplied by assumed missed-fraud cost.",
+    "models": {
+        "neural_network": {
+            "true_positives": 1040,
+            "false_positives": 216,
+            "false_negatives": 212,
+            "total_alerts": 1256,
+            "false_positive_transaction_amount": 40112404.55,
+            "missed_fraud_transaction_amount": 26345536.980000004,
+            "detected_fraud_transaction_amount": 2103783138.23,
+            "false_positive_rate": 0.0024485909266102886,
+            "missed_fraud_count": 212
+        },
+        "logistic_regression": {
+            "true_positives": 1232,
+            "false_positives": 20821,
+            "false_negatives": 20,
+            "total_alerts": 22053,
+            "false_positive_transaction_amount": 5898147482.26,
+            "missed_fraud_transaction_amount": 92959.20999999999,
+            "detected_fraud_transaction_amount": 2130035716.0,
+            "false_positive_rate": 0.23602829482848528,
+            "missed_fraud_count": 20
+        }
+    },
+    "scenario_comparison": [
+        {
+            "scenario": "low",
+            "baseline_estimated_cost": 42642.0,
+            "neural_estimated_cost": 11032.0,
+            "estimated_savings": 31610.0,
+            "savings_percentage": 74.12879320857371
+        },
+        {
+            "scenario": "base",
+            "baseline_estimated_cost": 107105.0,
+            "neural_estimated_cost": 32880.0,
+            "estimated_savings": 74225.0,
+            "savings_percentage": 69.30115307408617
+        },
+        {
+            "scenario": "high",
+            "baseline_estimated_cost": 218210.0,
+            "neural_estimated_cost": 108160.0,
+            "estimated_savings": 110050.0,
+            "savings_percentage": 50.43306906191284
+        }
+    ],
+    "interpretation": {
+        "gross_missed_fraud_amount_is_actual_loss": false,
+        "costs_are_actual_bank_costs": false,
+        "note": "Missed-fraud transaction amount is a gross exposure proxy, not verified realized financial loss. Cost outputs depend entirely on illustrative assumptions."
+    }
+}

@@ -1,0 +1,20 @@
+
+{
+    "currency": "USD",
+    "assumption_type": "ILLUSTRATIVE_NOT_ACTUAL_BANK_COSTS",
+    "description": "Replace these example assumptions with institution-approved estimates.",
+    "scenarios": {
+        "low": {
+            "cost_per_false_positive": 2,
+            "cost_per_false_negative": 50
+        },
+        "base": {
+            "cost_per_false_positive": 5,
+            "cost_per_false_negative": 150
+        },
+        "high": {
+            "cost_per_false_positive": 10,
+            "cost_per_false_negative": 500
+        }
+    }
+}

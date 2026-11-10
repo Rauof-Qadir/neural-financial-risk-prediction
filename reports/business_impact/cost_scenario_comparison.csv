@@ -1,0 +1,7 @@
+scenario,model,currency,cost_per_false_positive,cost_per_false_negative,false_positive_cost,false_negative_cost,total_estimated_cost
+low,neural_network,USD,2.0,50.0,432.0,10600.0,11032.0
+low,logistic_regression,USD,2.0,50.0,41642.0,1000.0,42642.0
+base,neural_network,USD,5.0,150.0,1080.0,31800.0,32880.0
+base,logistic_regression,USD,5.0,150.0,104105.0,3000.0,107105.0
+high,neural_network,USD,10.0,500.0,2160.0,106000.0,108160.0
+high,logistic_regression,USD,10.0,500.0,208210.0,10000.0,218210.0

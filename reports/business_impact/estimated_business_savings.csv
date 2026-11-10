@@ -1,0 +1,4 @@
+scenario,baseline_estimated_cost,neural_estimated_cost,estimated_savings,savings_percentage
+low,42642.0,11032.0,31610.0,74.12879320857371
+base,107105.0,32880.0,74225.0,69.30115307408617
+high,218210.0,108160.0,110050.0,50.43306906191284
