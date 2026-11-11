@@ -347,7 +347,11 @@ def predict_probabilities(model, X):
         for start in range(0, len(X), BATCH_SIZE):
 
             batch = torch.from_numpy(
-                X[start:start + BATCH_SIZE]
+                np.array(
+                    X[start:start + BATCH_SIZE],
+                    dtype=np.float32,
+                    copy=True,
+                )
             ).to(DEVICE)
 
             logits = model(batch)
