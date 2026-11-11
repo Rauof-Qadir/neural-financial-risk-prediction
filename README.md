@@ -21,6 +21,11 @@ The project covers the complete model lifecycle: data preparation, leakage-aware
 
 ---
 
+
+## Dashboard
+![1](docs/1.png)
+![2](docs/2.png)
+![3](docs/3.png)
 ## Project at a glance
 
 | Area | Implementation |
@@ -446,7 +451,7 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
 Place the raw CSV at:
 
 ```text
-data/raw/PS_20174392719_1491204439457_log.csv
+data/raw/transactions.csv
 ```
 
 The dataset is synthetic. Follow the dataset provider's terms and attribution requirements when redistributing it.
